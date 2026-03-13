@@ -3,7 +3,8 @@
 > **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects · 1 Career
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Progress](https://img.shields.io/badge/Progress-Day%202%20of%2060-22C55E?style=flat)](.)
+[![Progress](https://img.shields.io/badge/Progress-Day%203%20of%2060-22C55E?style=flat)](.)
+[![Days Complete](https://img.shields.io/badge/Days%20Complete-3-6366f1?style=flat)](.)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)](.)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat)](.)
 
@@ -50,6 +51,11 @@ Python/
 │   ├── guess_the_number.py   ← Bonus: number guessing game
 │   └── README.md             ← Day 2 notes & guide
 │
+├── 📂 Day3/                  ← Functions — Reusable Code
+│   ├── day3.py               ← def, params, return, scope practice
+│   ├── functions_practice.py ← Day 3 project: function library
+│   └── README.md             ← Day 3 notes & guide
+│
 └── README.md                 ← This file
 ```
 
@@ -57,10 +63,10 @@ Python/
 
 ## 📅 Daily Progress
 
-### ✅ Week 1 — Python Core
+### 🔄 Week 1 — Python Core (3 / 7 days complete)
 
 <details>
-<summary><b>Day 1 — Setup, Variables & Data Types</b></summary>
+<summary><b>Day 1 — Setup, Variables & Data Types</b> ✅</summary>
 
 **Topics covered:**
 - Python 3.11+ installation & VS Code setup
@@ -82,7 +88,7 @@ print(f"Hello {name}, you are {age} years old!")
 </details>
 
 <details>
-<summary><b>Day 2 — Control Flow & Loops</b></summary>
+<summary><b>Day 2 — Control Flow & Loops</b> ✅</summary>
 
 **Topics covered:**
 - `if`, `elif`, `else` conditions
@@ -106,28 +112,148 @@ while True:
 </details>
 
 <details>
-<summary><b>Day 3 — Functions</b> ⏳ Coming soon</summary>
+<summary><b>Day 3 — Functions: Reusable Code</b> ✅</summary>
 
-- `def`, parameters, return values
+**Topics covered:**
+- `def` keyword, parameters, return values
 - Default parameters, `*args`, `**kwargs`
 - Scope: local vs global
 - Lambda functions
+- Docstrings and type hints (intro)
+
+**Project:** Function Library
+
+```python
+def calculate_tax(price: float, rate: float = 0.18) -> float:
+    """Calculate tax on a price.
+
+    Args:
+        price: The base price in rupees.
+        rate: Tax rate (0–1). Default 18%.
+
+    Returns:
+        Tax amount as a float.
+    """
+    return price * rate
+
+# Lambda as sort key
+students = [{"name": "Alice", "grade": 88}, {"name": "Bob", "grade": 95}]
+top = sorted(students, key=lambda s: s["grade"], reverse=True)
+```
+
+📁 [View Day 3 →](./Day3/)
 
 </details>
 
 <details>
 <summary><b>Day 4 — Lists & Tuples</b> ⏳ Coming soon</summary>
+
+- Create, access, slice lists
+- List methods: `append`, `pop`, `extend`, `sort`, `reverse`
+- List comprehensions (essential for AI/ML)
+- Tuples vs lists — when to use each
+- Nested lists (2D arrays intro)
+
+```python
+# Preview
+fruits = ["apple", "banana", "cherry"]
+fruits.append("date")
+
+# List comprehension — Python superpower
+squares = [x**2 for x in range(10)]
+# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+```
+
 </details>
 
 <details>
 <summary><b>Day 5 — Dictionaries & Sets</b> ⏳ Coming soon</summary>
+
+- Create, access, update dictionaries
+- Dict methods: `keys()`, `values()`, `items()`, `get()`
+- Dict comprehensions
+- Sets: union, intersection, difference
+- Nested dicts (JSON preview)
+
+</details>
+
+<details>
+<summary><b>Day 6 — Strings Deep Dive</b> ⏳ Coming soon</summary>
+
+- String methods: `split`, `join`, `strip`, `replace`, `find`
+- String slicing mastery
+- Regular expressions intro (`re` module)
+- Format strings for output
+
+</details>
+
+<details>
+<summary><b>Day 7 — File Handling</b> ⏳ Coming soon</summary>
+
+- `open()`, `read()`, `write()`, `close()`
+- `with` statement (context manager)
+- Read/write CSV files manually
+- `os` and `pathlib` modules
+
+</details>
+
+### ⏳ Week 2 — Python Core continued (Days 8–14)
+
+<details>
+<summary><b>Day 8 — Error Handling & Debugging</b> ⏳ Coming soon</summary>
+
+- `try`, `except`, `finally`, `raise`
+- Common errors: `TypeError`, `ValueError`, `KeyError`
+- Debugging with `print()`, breakpoints, VS Code debugger
+
+</details>
+
+<details>
+<summary><b>Day 9 — Modules, Packages & pip</b> ⏳ Coming soon</summary>
+</details>
+
+<details>
+<summary><b>Day 10–11 — Object-Oriented Programming</b> ⏳ Coming soon</summary>
+</details>
+
+<details>
+<summary><b>Day 12 — APIs & HTTP Requests</b> ⏳ Coming soon</summary>
+</details>
+
+<details>
+<summary><b>Day 13 — Data Structures & Algorithms Basics</b> ⏳ Coming soon</summary>
+</details>
+
+<details>
+<summary><b>Day 14 — Week Project: CLI Task Manager</b> ⏳ Coming soon</summary>
 </details>
 
 ---
 
-## 🛠️ Tech Stack
+## 📊 Skills Unlocked
 
-| Tool | Purpose |
+| Skill | Status | Day |
+|-------|--------|-----|
+| Variables & data types | ✅ Done | Day 1 |
+| Type conversion & f-strings | ✅ Done | Day 1 |
+| if / elif / else | ✅ Done | Day 2 |
+| for & while loops | ✅ Done | Day 2 |
+| break & continue | ✅ Done | Day 2 |
+| Functions (`def`, `return`) | ✅ Done | Day 3 |
+| Default params, `*args`, `**kwargs` | ✅ Done | Day 3 |
+| Scope (local vs global) | ✅ Done | Day 3 |
+| Lambda functions | ✅ Done | Day 3 |
+| Type hints & docstrings | ✅ Done | Day 3 |
+| Lists & tuples | ⏳ Day 4 | — |
+| Dictionaries & sets | ⏳ Day 5 | — |
+| String methods & regex | ⏳ Day 6 | — |
+| File I/O | ⏳ Day 7 | — |
+| Error handling | ⏳ Day 8 | — |
+| OOP | ⏳ Day 10–11 | — |
+
+---
+
+## 🛠️ Tech Stack
 |------|---------|
 | ![Python](https://img.shields.io/badge/-Python_3.11+-3776AB?style=flat&logo=python&logoColor=white) | Core language |
 | ![VS Code](https://img.shields.io/badge/-VS_Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white) | Code editor |
@@ -187,6 +313,9 @@ python calculator.py
 
 cd ../Day2
 python calculator_v2.py
+
+cd ../Day3
+python functions_practice.py
 ```
 
 ---
@@ -229,6 +358,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Built with consistency, one day at a time. 🐍**
 
-*Day 2 of 60 — the journey has begun.*
+*Day 3 of 60 complete — 5% done, 95% of the adventure ahead.*
 
 </div>
