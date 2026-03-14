@@ -3,8 +3,8 @@
 > **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects · 1 Career
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Progress](https://img.shields.io/badge/Progress-Day%203%20of%2060-22C55E?style=flat)](.)
-[![Days Complete](https://img.shields.io/badge/Days%20Complete-3-6366f1?style=flat)](.)
+[![Progress](https://img.shields.io/badge/Progress-Day%204%20of%2060-22C55E?style=flat)](.)
+[![Days Complete](https://img.shields.io/badge/Days%20Complete-4-6366f1?style=flat)](.)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)](.)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat)](.)
 
@@ -56,6 +56,11 @@ Python/
 │   ├── functions_practice.py ← Day 3 project: function library
 │   └── README.md             ← Day 3 notes & guide
 │
+├── 📂 Day4/                  ← Lists & Tuples — Ordered Collections
+│   ├── day4.py               ← create, slice, methods practice
+│   ├── list_practice.py      ← Day 4 project: grade tracker + matrix ops
+│   └── README.md             ← Day 4 notes & guide
+│
 └── README.md                 ← This file
 ```
 
@@ -63,7 +68,7 @@ Python/
 
 ## 📅 Daily Progress
 
-### 🔄 Week 1 — Python Core (3 / 7 days complete)
+### 🔄 Week 1 — Python Core (4 / 7 days complete)
 
 <details>
 <summary><b>Day 1 — Setup, Variables & Data Types</b> ✅</summary>
@@ -146,23 +151,33 @@ top = sorted(students, key=lambda s: s["grade"], reverse=True)
 </details>
 
 <details>
-<summary><b>Day 4 — Lists & Tuples</b> ⏳ Coming soon</summary>
+<summary><b>Day 4 — Lists & Tuples: Ordered Collections</b> ✅</summary>
 
-- Create, access, slice lists
-- List methods: `append`, `pop`, `extend`, `sort`, `reverse`
-- List comprehensions (essential for AI/ML)
-- Tuples vs lists — when to use each
-- Nested lists (2D arrays intro)
+**Topics covered:**
+- Create, access, slice lists — positive & negative indexing, `start:stop:step`
+- List methods: `append`, `pop`, `extend`, `sort`, `reverse` — mutates vs returns new
+- List comprehensions — the essential Python pattern for AI/ML data pipelines
+- Tuples vs lists — immutability, unpacking, tuples as dict keys
+- Nested lists — 2D arrays, `matrix[row][col]`, comprehension-built grids
+
+**Project:** Student grade tracker + matrix operations
 
 ```python
-# Preview
-fruits = ["apple", "banana", "cherry"]
-fruits.append("date")
+# List comprehension — normalise data to 0-1 (used everywhere in ML)
+raw = [10, 20, 30, 40, 50]
+normalised = [(x - min(raw)) / (max(raw) - min(raw)) for x in raw]
+# [0.0, 0.25, 0.5, 0.75, 1.0]
 
-# List comprehension — Python superpower
-squares = [x**2 for x in range(10)]
-# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+# Tuple unpacking
+name, age, city = ("Alice", 25, "Chennai")
+a, b = b, a   # swap without a temp variable
+
+# 2D list — gateway to NumPy matrices
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(matrix[1][2])   # 6  — row 1, col 2
 ```
+
+📁 [View Day 4 →](./Day4/)
 
 </details>
 
@@ -244,7 +259,11 @@ squares = [x**2 for x in range(10)]
 | Scope (local vs global) | ✅ Done | Day 3 |
 | Lambda functions | ✅ Done | Day 3 |
 | Type hints & docstrings | ✅ Done | Day 3 |
-| Lists & tuples | ⏳ Day 4 | — |
+| Lists & tuples | ✅ Done | Day 4 |
+| Slicing & indexing | ✅ Done | Day 4 |
+| List comprehensions | ✅ Done | Day 4 |
+| Tuple unpacking | ✅ Done | Day 4 |
+| 2D nested lists | ✅ Done | Day 4 |
 | Dictionaries & sets | ⏳ Day 5 | — |
 | String methods & regex | ⏳ Day 6 | — |
 | File I/O | ⏳ Day 7 | — |
@@ -316,6 +335,9 @@ python calculator_v2.py
 
 cd ../Day3
 python functions_practice.py
+
+cd ../Day4
+python list_practice.py
 ```
 
 ---
@@ -358,6 +380,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Built with consistency, one day at a time. 🐍**
 
-*Day 3 of 60 complete — 5% done, 95% of the adventure ahead.*
+*Day 4 of 60 complete — lists, tuples, and comprehensions unlocked.*
 
 </div>
