@@ -3,8 +3,8 @@
 > **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects · 1 Career
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Progress](https://img.shields.io/badge/Progress-Day%204%20of%2060-22C55E?style=flat)](.)
-[![Days Complete](https://img.shields.io/badge/Days%20Complete-4-6366f1?style=flat)](.)
+[![Progress](https://img.shields.io/badge/Progress-Day%205%20of%2060-22C55E?style=flat)](.)
+[![Days Complete](https://img.shields.io/badge/Days%20Complete-5-6366f1?style=flat)](.)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)](.)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat)](.)
 
@@ -61,6 +61,11 @@ Python/
 │   ├── list_practice.py      ← Day 4 project: grade tracker + matrix ops
 │   └── README.md             ← Day 4 notes & guide
 │
+├── 📂 Day5/                  ← Dictionaries & Sets
+│   ├── day5.py               ← dict/set creation, methods, comprehensions
+│   ├── dict_practice.py      ← Day 5 project: student DB + word frequency
+│   └── README.md             ← Day 5 notes & guide
+│
 └── README.md                 ← This file
 ```
 
@@ -68,7 +73,7 @@ Python/
 
 ## 📅 Daily Progress
 
-### 🔄 Week 1 — Python Core (4 / 7 days complete)
+### 🔄 Week 1 — Python Core (5 / 7 days complete)
 
 <details>
 <summary><b>Day 1 — Setup, Variables & Data Types</b> ✅</summary>
@@ -182,13 +187,35 @@ print(matrix[1][2])   # 6  — row 1, col 2
 </details>
 
 <details>
-<summary><b>Day 5 — Dictionaries & Sets</b> ⏳ Coming soon</summary>
+<summary><b>Day 5 — Dictionaries & Sets</b> ✅</summary>
 
-- Create, access, update dictionaries
-- Dict methods: `keys()`, `values()`, `items()`, `get()`
-- Dict comprehensions
-- Sets: union, intersection, difference
-- Nested dicts (JSON preview)
+**Topics covered:**
+- Create, access, update dicts — `d["key"]`, `del`, `"key" in d`
+- Dict methods: `.keys()`, `.values()`, `.items()`, `.get()`, `.update()`, `.pop()`
+- Dict comprehensions — filter, transform, invert, build from zip
+- Sets — unique values, `|` `&` `-` `^` operations, O(1) membership test
+- Nested dicts — JSON pattern, `json.loads()` / `json.dumps()`
+
+**Project:** Student database + set operations + word frequency counter
+
+```python
+# Safe lookup — always prefer .get() over []
+student.get("grade", "N/A")   # no KeyError if key missing
+
+# Dict comprehension
+discounted = {item: price * 0.9 for item, price in prices.items()}
+
+# Set operations
+python_devs & ml_devs    # intersection — know both
+python_devs - ml_devs    # difference  — python only
+
+# JSON round-trip
+import json
+data = json.loads('{"name": "Alice", "score": 88}')
+print(data["name"])   # Alice
+```
+
+📁 [View Day 5 →](./Day5/)
 
 </details>
 
@@ -264,7 +291,10 @@ print(matrix[1][2])   # 6  — row 1, col 2
 | List comprehensions | ✅ Done | Day 4 |
 | Tuple unpacking | ✅ Done | Day 4 |
 | 2D nested lists | ✅ Done | Day 4 |
-| Dictionaries & sets | ⏳ Day 5 | — |
+| Dictionaries & sets | ✅ Done | Day 5 |
+| Dict comprehensions | ✅ Done | Day 5 |
+| Set operations | ✅ Done | Day 5 |
+| Nested dicts / JSON | ✅ Done | Day 5 |
 | String methods & regex | ⏳ Day 6 | — |
 | File I/O | ⏳ Day 7 | — |
 | Error handling | ⏳ Day 8 | — |
@@ -338,6 +368,9 @@ python functions_practice.py
 
 cd ../Day4
 python list_practice.py
+
+cd ../Day5
+python dict_practice.py
 ```
 
 ---
@@ -380,6 +413,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Built with consistency, one day at a time. 🐍**
 
-*Day 4 of 60 complete — lists, tuples, and comprehensions unlocked.*
+*Day 5 of 60 complete — dicts, sets, and JSON unlocked.*
 
 </div>
