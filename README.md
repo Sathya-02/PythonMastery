@@ -338,7 +338,7 @@ print(data["name"])   # Alice
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sathya-02/Python.git
+git clone https://github.com/Sathya-02/PythonMastery.git
 cd Python
 
 # Create virtual environment
