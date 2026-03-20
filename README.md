@@ -1,6 +1,6 @@
 # 🐍 Python Mastery — AI & Machine Learning
 
-> **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects · 1 Career
+> **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
 [![Progress](https://img.shields.io/badge/Progress-Day%206%20of%2060-22C55E?style=flat)](.)
@@ -390,7 +390,7 @@ for key, val in result.items():
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sathya-02/Python.git
+git clone https://github.com/Sathya-02/PythonMastery.git
 cd Python
 
 # Create virtual environment
