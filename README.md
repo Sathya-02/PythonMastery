@@ -3,8 +3,8 @@
 > **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects · 1 Career
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Progress](https://img.shields.io/badge/Progress-Day%205%20of%2060-22C55E?style=flat)](.)
-[![Days Complete](https://img.shields.io/badge/Days%20Complete-5-6366f1?style=flat)](.)
+[![Progress](https://img.shields.io/badge/Progress-Day%206%20of%2060-22C55E?style=flat)](.)
+[![Days Complete](https://img.shields.io/badge/Days%20Complete-6-6366f1?style=flat)](.)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)](.)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat)](.)
 
@@ -66,6 +66,11 @@ Python/
 │   ├── dict_practice.py      ← Day 5 project: student DB + word frequency
 │   └── README.md             ← Day 5 notes & guide
 │
+├── 📂 Day6/                  ← Strings Deep Dive
+│   ├── day6.py               ← string methods, slicing, regex practice
+│   ├── text_analyzer.py      ← Day 6 project: text analyzer tool
+│   └── README.md             ← Day 6 notes & guide
+│
 └── README.md                 ← This file
 ```
 
@@ -73,7 +78,7 @@ Python/
 
 ## 📅 Daily Progress
 
-### 🔄 Week 1 — Python Core (5 / 7 days complete)
+### 🔄 Week 1 — Python Core (6 / 7 days complete)
 
 <details>
 <summary><b>Day 1 — Setup, Variables & Data Types</b> ✅</summary>
@@ -220,12 +225,57 @@ print(data["name"])   # Alice
 </details>
 
 <details>
-<summary><b>Day 6 — Strings Deep Dive</b> ⏳ Coming soon</summary>
+<summary><b>Day 6 — Strings Deep Dive</b> ✅</summary>
 
-- String methods: `split`, `join`, `strip`, `replace`, `find`
-- String slicing mastery
-- Regular expressions intro (`re` module)
-- Format strings for output
+**Topics covered:**
+- String methods: `split`, `join`, `strip`, `replace`, `find` — text cleaning for AI/NLP pipelines
+- String slicing mastery — `[start:stop:step]`, negative indexing, reversal trick
+- Regular expressions intro (`re` module) — `search`, `findall`, `sub`, `match`
+- Format strings for output — f-strings, `.format()`, `%` formatting, alignment & padding
+- AI/NLP relevance: tokenization, pattern extraction, data cleaning
+
+**Project:** Text Analyzer Tool
+
+```python
+import re
+
+def analyze_text(text: str) -> dict:
+    """Analyze text and return statistics."""
+    cleaned   = text.strip().lower()
+    words     = cleaned.split()
+    sentences = re.split(r'[.!?]+', text.strip())
+    sentences = [s.strip() for s in sentences if s.strip()]
+
+    word_freq: dict = {}
+    for word in words:
+        word = re.sub(r'[^a-z]', '', word)   # remove punctuation
+        if word:
+            word_freq[word] = word_freq.get(word, 0) + 1
+
+    emails    = re.findall(r'\b[\w.+-]+@[\w-]+\.[a-z]{2,}\b', text)
+    urls      = re.findall(r'https?://\S+', text)
+    top_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)[:5]
+
+    return {
+        "char_count"   : len(text),
+        "word_count"   : len(words),
+        "sentence_count": len(sentences),
+        "unique_words" : len(word_freq),
+        "top_5_words"  : top_words,
+        "emails_found" : emails,
+        "urls_found"   : urls,
+    }
+
+sample = """
+Python is an amazing language. Python is used in AI, web, and data science.
+Contact us at info@example.com or visit https://python.org for more details!
+"""
+result = analyze_text(sample)
+for key, val in result.items():
+    print(f"{key:<20}: {val}")
+```
+
+📁 [View Day 6 →](./Day6/)
 
 </details>
 
@@ -295,7 +345,7 @@ print(data["name"])   # Alice
 | Dict comprehensions | ✅ Done | Day 5 |
 | Set operations | ✅ Done | Day 5 |
 | Nested dicts / JSON | ✅ Done | Day 5 |
-| String methods & regex | ⏳ Day 6 | — |
+| String methods & regex | ✅ Done | Day 6 |
 | File I/O | ⏳ Day 7 | — |
 | Error handling | ⏳ Day 8 | — |
 | OOP | ⏳ Day 10–11 | — |
@@ -303,6 +353,8 @@ print(data["name"])   # Alice
 ---
 
 ## 🛠️ Tech Stack
+
+| Tool | Purpose |
 |------|---------|
 | ![Python](https://img.shields.io/badge/-Python_3.11+-3776AB?style=flat&logo=python&logoColor=white) | Core language |
 | ![VS Code](https://img.shields.io/badge/-VS_Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white) | Code editor |
@@ -371,6 +423,9 @@ python list_practice.py
 
 cd ../Day5
 python dict_practice.py
+
+cd ../Day6
+python text_analyzer.py
 ```
 
 ---
@@ -413,6 +468,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Built with consistency, one day at a time. 🐍**
 
-*Day 5 of 60 complete — dicts, sets, and JSON unlocked.*
+*Day 6 of 60 complete — strings, slicing, regex, and text analysis unlocked.*
 
 </div>
