@@ -1,0 +1,5 @@
+# ERROR entries extracted — 4 total
+2024-12-01 08:07:45 ERROR  Database connection timeout after 30s
+2024-12-01 08:10:33 ERROR  FileNotFoundError: config.yaml not found
+2024-12-01 08:16:20 ERROR  ConnectionRefusedError: Redis unreachable
+2024-12-01 08:25:00 ERROR  Timeout: external API did not respond

@@ -1,0 +1,4 @@
+
+ with statement 
+ Hello. File world!
+Python I/O is easy

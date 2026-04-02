@@ -1,0 +1,8 @@
+LOG ANALYSIS SUMMARY
+========================================
+Total entries : 16
+Errors        : 4
+Warnings      : 3
+Info          : 9
+Duration      : 30.0 mins
+Unique users  : alice@example.com, bob@test.org, carol@company.com, dave@example.com, eve@test.org

@@ -1,10 +1,10 @@
 # 🐍 Python Mastery — AI & Machine Learning
 
-> **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects
+> **Beginner → Job-Ready** | 60 Days · 8 Weeks · 6 Real Projects · 1 Career
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Progress](https://img.shields.io/badge/Progress-Day%206%20of%2060-22C55E?style=flat)](.)
-[![Days Complete](https://img.shields.io/badge/Days%20Complete-6-6366f1?style=flat)](.)
+[![Progress](https://img.shields.io/badge/Progress-Day%207%20of%2060-22C55E?style=flat)](.)
+[![Days Complete](https://img.shields.io/badge/Days%20Complete-7-6366f1?style=flat)](.)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat)](.)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat)](.)
 
@@ -71,6 +71,11 @@ Python/
 │   ├── text_analyzer.py      ← Day 6 project: text analyzer tool
 │   └── README.md             ← Day 6 notes & guide
 │
+├── 📂 Day7/                  ← File Handling — Read & Write Files
+│   ├── day7.py               ← open/read/write, with, os, pathlib practice
+│   ├── log_parser.py         ← Day 7 project: log file parser
+│   └── README.md             ← Day 7 notes & guide
+│
 └── README.md                 ← This file
 ```
 
@@ -78,7 +83,7 @@ Python/
 
 ## 📅 Daily Progress
 
-### 🔄 Week 1 — Python Core (6 / 7 days complete)
+### ✅ Week 1 — Python Core (7 / 7 days complete)
 
 <details>
 <summary><b>Day 1 — Setup, Variables & Data Types</b> ✅</summary>
@@ -140,15 +145,7 @@ while True:
 
 ```python
 def calculate_tax(price: float, rate: float = 0.18) -> float:
-    """Calculate tax on a price.
-
-    Args:
-        price: The base price in rupees.
-        rate: Tax rate (0–1). Default 18%.
-
-    Returns:
-        Tax amount as a float.
-    """
+    """Calculate tax on a price."""
     return price * rate
 
 # Lambda as sort key
@@ -165,7 +162,7 @@ top = sorted(students, key=lambda s: s["grade"], reverse=True)
 
 **Topics covered:**
 - Create, access, slice lists — positive & negative indexing, `start:stop:step`
-- List methods: `append`, `pop`, `extend`, `sort`, `reverse` — mutates vs returns new
+- List methods: `append`, `pop`, `extend`, `sort`, `reverse`
 - List comprehensions — the essential Python pattern for AI/ML data pipelines
 - Tuples vs lists — immutability, unpacking, tuples as dict keys
 - Nested lists — 2D arrays, `matrix[row][col]`, comprehension-built grids
@@ -177,10 +174,6 @@ top = sorted(students, key=lambda s: s["grade"], reverse=True)
 raw = [10, 20, 30, 40, 50]
 normalised = [(x - min(raw)) / (max(raw) - min(raw)) for x in raw]
 # [0.0, 0.25, 0.5, 0.75, 1.0]
-
-# Tuple unpacking
-name, age, city = ("Alice", 25, "Chennai")
-a, b = b, a   # swap without a temp variable
 
 # 2D list — gateway to NumPy matrices
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
@@ -210,10 +203,6 @@ student.get("grade", "N/A")   # no KeyError if key missing
 # Dict comprehension
 discounted = {item: price * 0.9 for item, price in prices.items()}
 
-# Set operations
-python_devs & ml_devs    # intersection — know both
-python_devs - ml_devs    # difference  — python only
-
 # JSON round-trip
 import json
 data = json.loads('{"name": "Alice", "score": 88}')
@@ -231,48 +220,25 @@ print(data["name"])   # Alice
 - String methods: `split`, `join`, `strip`, `replace`, `find` — text cleaning for AI/NLP pipelines
 - String slicing mastery — `[start:stop:step]`, negative indexing, reversal trick
 - Regular expressions intro (`re` module) — `search`, `findall`, `sub`, `match`
-- Format strings for output — f-strings, `.format()`, `%` formatting, alignment & padding
-- AI/NLP relevance: tokenization, pattern extraction, data cleaning
+- Format strings for output — f-strings, `.format()`, alignment & padding
 
 **Project:** Text Analyzer Tool
 
 ```python
 import re
 
-def analyze_text(text: str) -> dict:
-    """Analyze text and return statistics."""
-    cleaned   = text.strip().lower()
-    words     = cleaned.split()
-    sentences = re.split(r'[.!?]+', text.strip())
-    sentences = [s.strip() for s in sentences if s.strip()]
+# Reverse a string
+s = "Python"
+print(s[::-1])         # 'nohtyP'
 
-    word_freq: dict = {}
-    for word in words:
-        word = re.sub(r'[^a-z]', '', word)   # remove punctuation
-        if word:
-            word_freq[word] = word_freq.get(word, 0) + 1
+# Extract all emails with regex
+text = "Contact alice@example.com or bob@test.org"
+emails = re.findall(r'\b[\w.+-]+@[\w-]+\.[a-z]{2,}\b', text)
+print(emails)          # ['alice@example.com', 'bob@test.org']
 
-    emails    = re.findall(r'\b[\w.+-]+@[\w-]+\.[a-z]{2,}\b', text)
-    urls      = re.findall(r'https?://\S+', text)
-    top_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)[:5]
-
-    return {
-        "char_count"   : len(text),
-        "word_count"   : len(words),
-        "sentence_count": len(sentences),
-        "unique_words" : len(word_freq),
-        "top_5_words"  : top_words,
-        "emails_found" : emails,
-        "urls_found"   : urls,
-    }
-
-sample = """
-Python is an amazing language. Python is used in AI, web, and data science.
-Contact us at info@example.com or visit https://python.org for more details!
-"""
-result = analyze_text(sample)
-for key, val in result.items():
-    print(f"{key:<20}: {val}")
+# f-string alignment
+print(f"{'Name':<12} {'Score':>8}")
+print(f"{'Alice':<12} {95.68:>8.2f}")
 ```
 
 📁 [View Day 6 →](./Day6/)
@@ -280,22 +246,48 @@ for key, val in result.items():
 </details>
 
 <details>
-<summary><b>Day 7 — File Handling</b> ⏳ Coming soon</summary>
+<summary><b>Day 7 — File Handling: Read & Write Files</b> ✅</summary>
 
-- `open()`, `read()`, `write()`, `close()`
-- `with` statement (context manager)
-- Read/write CSV files manually
-- `os` and `pathlib` modules
+**Topics covered:**
+- `open()`, `read()`, `write()`, `close()` — modes `r`, `w`, `a`, `x`, `rb`
+- `with` statement (context manager) — auto-close, exception-safe
+- Read/write CSV files manually — and with `csv.DictReader` / `csv.writer`
+- `os` module — `getcwd`, `listdir`, `makedirs`, `path.exists`, `environ`, `walk`
+- `pathlib` module — `Path` objects, `/` operator, `glob`, `rglob`, `read_text`, `write_text`
+
+**Project:** Log File Parser
+
+```python
+from pathlib import Path
+import re
+
+# Read a file safely
+with open("app.log", "r", encoding="utf-8") as f:
+    for line in f:
+        print(line.strip())
+
+# pathlib — modern path handling
+log_path = Path("logs") / "app.log"
+log_path.parent.mkdir(exist_ok=True)
+log_path.write_text("2024-12-01 08:00:01 INFO  Server started\n", encoding="utf-8")
+
+# Glob all CSV files
+csv_files = list(Path(".").glob("*.csv"))
+print(csv_files)   # [PosixPath('students.csv'), ...]
+```
+
+📁 [View Day 7 →](./Day7/)
 
 </details>
 
-### ⏳ Week 2 — Python Core continued (Days 8–14)
+### 🔄 Week 2 — Python Core continued (Days 8–14)
 
 <details>
 <summary><b>Day 8 — Error Handling & Debugging</b> ⏳ Coming soon</summary>
 
 - `try`, `except`, `finally`, `raise`
-- Common errors: `TypeError`, `ValueError`, `KeyError`
+- Common errors: `TypeError`, `ValueError`, `KeyError`, `FileNotFoundError`
+- Custom exceptions
 - Debugging with `print()`, breakpoints, VS Code debugger
 
 </details>
@@ -345,9 +337,15 @@ for key, val in result.items():
 | Dict comprehensions | ✅ Done | Day 5 |
 | Set operations | ✅ Done | Day 5 |
 | Nested dicts / JSON | ✅ Done | Day 5 |
-| String methods & regex | ✅ Done | Day 6 |
-| File I/O | ⏳ Day 7 | — |
-| Error handling | ⏳ Day 8 | — |
+| String methods & slicing | ✅ Done | Day 6 |
+| Regular expressions (`re`) | ✅ Done | Day 6 |
+| f-string formatting & alignment | ✅ Done | Day 6 |
+| File read / write (`open`, `with`) | ✅ Done | Day 7 |
+| CSV handling (manual + `csv` module) | ✅ Done | Day 7 |
+| `os` module — paths & file system | ✅ Done | Day 7 |
+| `pathlib` — modern path handling | ✅ Done | Day 7 |
+| Error handling (`try` / `except`) | ⏳ Day 8 | — |
+| Modules, packages & pip | ⏳ Day 9 | — |
 | OOP | ⏳ Day 10–11 | — |
 
 ---
@@ -390,7 +388,7 @@ for key, val in result.items():
 
 ```bash
 # Clone the repository
-git clone https://github.com/Sathya-02/PythonMastery.git
+git clone https://github.com/Sathya-02/Python.git
 cd Python
 
 # Create virtual environment
@@ -409,23 +407,13 @@ pip install -r requirements.txt
 ### Run any day's code
 
 ```bash
-cd Day1
-python calculator.py
-
-cd ../Day2
-python calculator_v2.py
-
-cd ../Day3
-python functions_practice.py
-
-cd ../Day4
-python list_practice.py
-
-cd ../Day5
-python dict_practice.py
-
-cd ../Day6
-python text_analyzer.py
+cd Day1 && python calculator.py
+cd ../Day2 && python calculator_v2.py
+cd ../Day3 && python functions_practice.py
+cd ../Day4 && python list_practice.py
+cd ../Day5 && python dict_practice.py
+cd ../Day6 && python text_analyzer.py
+cd ../Day7 && python log_parser.py
 ```
 
 ---
@@ -468,6 +456,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 **Built with consistency, one day at a time. 🐍**
 
-*Day 6 of 60 complete — strings, slicing, regex, and text analysis unlocked.*
+*Day 7 of 60 complete — file I/O, CSV, os, and pathlib unlocked. Week 1 done! 🎉*
 
 </div>
